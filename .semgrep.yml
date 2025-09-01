@@ -1,0 +1,9 @@
+# Minimal Semgrep ruleset; expand with frameworks you use
+rules:
+  - id: generic-insecure-temp-file
+    message: Potential insecure temp file usage
+    severity: WARNING
+    languages: [python, go, javascript, typescript]
+    pattern: |
+      $F = open("/tmp/$X", ...)
+
